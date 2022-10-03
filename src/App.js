@@ -1,16 +1,16 @@
 // import logo from './logo.svg';
-import { useState } from "react";
+import React, {useState}  from 'react';
 import "./App.css";
 import Alert from "./components/Alert";
-import About from "./components/About";
+// import About from "./components/About";
 import NavBar from "./components/NavBar";
 import TextForm from "./components/TextForm";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   // Link
+// } from "react-router-dom";
 // let name = 'Mayank Singh'
 function App() {
   const [mode,setMode] = useState('light') //weather dark mode is enabled or not
@@ -46,23 +46,23 @@ function App() {
   }
   return (
     <>
-    <Router>
+    {/* <Router> */}
       <NavBar title = 'TextUtils' mode = {mode} toogleMode={toogleMode} aboutText='About-Us'/>
       <Alert alert = {alert}/>
       
       {/* <NavBar/> */}
       <div className="container my-3"> 
-      <Routes>
-          <Route exact path="/about" element={<About/>}/>
+      {/* <Routes> */}
+          {/* <Route exact path="/about" element={<About/>}/> */}
           {/* this are the old method the above line is stacloverflow sol..  */}
             {/* <About/> */}
           {/* </Route> */}
-          <Route exact path="/" element={<TextForm/>}/>
-            {/* <TextForm showAlert= {showAlert} heading = 'Enter the text' mode = {mode}/> */}
+          {/* <Route exact path="/" element={<TextForm/>}/> */}
+            <TextForm showAlert= {showAlert} heading = 'Enter the text' mode = {mode}/>
           {/* </Route> */}
-      </Routes>
+      {/* </Routes> */}
       </div>
-      </Router>  
+      {/* </Router>   */}
     </>
   );
 }
