@@ -1,31 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function About() {
- 
-  const [myStyle, setMyStyle]=useState({
-    color: "black",
-    backgroundColor: "white",
-  })
-  const [btnText, setbtnText]=useState('Enable-Dark-Mode')
-  const toogleStyle=()=>{
-    if(myStyle.color === 'black'){
-        setMyStyle({
-            color: "white",
-            backgroundColor: "black",
-            border: '1px solid white'
-        })
-        setbtnText('Enable-Light-Mode')
-    }else{
-        setMyStyle({
-            color: "black",
-            backgroundColor: "white",
-        })
-        setbtnText('Enable-Dark-Mode')
-    }
+export default function About(props) {
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
+
+  let myStyle = {
+    color: props.mode === 'dark'?'white':'#042743',
+    backgroundColor: props.mode === 'dark'?'rgb(36 74 104)':'white',
+    // border:'2px solid',
+    // borderColor:props.mode === 'dark'?'white':'#042743'
   }
+ 
   return (
-    <div className="container" style={myStyle}>
-      <h2 className="my-2">About-Us</h2>
+    <div className="container">
+      <h2 className="my-2" style={{color: props.mode === 'dark'?'white':'#042743'}}>About-Us</h2>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">
@@ -38,7 +28,7 @@ export default function About() {
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              Accordion Item #1
+              <strong>Analyze Your Text</strong>
             </button>
           </h2>
           <div
@@ -48,14 +38,15 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              If you receive huge amounts of unstructured data in the form of
+              text (emails, social media conversations, chats), you are probably
+              aware of the challenges that come with analyzing this
+              data.Manually processing and organizing text data takes time, it
+              is tedious, inaccurate, and it can be expensive if you need to
+              hire extra staff to sort through text.learn more about what text
+              analysis is, how to perform text analysis using AI tools, and why
+              it is more important than ever to automatically analyze your text
+              in real time
             </div>
           </div>
         </div>
@@ -70,7 +61,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              Accordion Item #2
+              <strong>Free to Use</strong>
             </button>
           </h2>
           <div
@@ -80,14 +71,13 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              Your phone comes with a built-in texting app, but you might not
+              always want to use it. After all, SMS texting uses your wireless
+              plan, which might cost you money — especially when roaming
+              internationally. There are a slew of free texting apps that can
+              use WiFi instead or have other advantages beyond the standard
+              texting app on your phone. Here are seven of the best options that
+              are available for both iPhone and Android.
             </div>
           </div>
         </div>
@@ -102,7 +92,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              Accordion Item #3
+              <strong>Browser Compatible</strong>
             </button>
           </h2>
           <div
@@ -112,22 +102,16 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              A website is compatibility plays a huge role in the success of an
+              e-commerce business. The reason being that incompatibility with
+              certain browsers limits the audience of that website. This leads
+              to the limited traffic on that particular website which can bring
+              down its conversion. This means that browser compatibility is
+              among the prime aspects to cater to while a website is in the
+              development phase.
             </div>
           </div>
         </div>
-      </div>
-      <div className="container my-3">
-        <button type="button" className="btn btn-primary" onClick={toogleStyle}>
-          {btnText}
-        </button>
       </div>
     </div>
   );
